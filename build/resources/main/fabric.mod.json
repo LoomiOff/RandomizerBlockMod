@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "randomizer_block_mod",
+	"version": "1.0.0",
+	"name": "Randomizer Block Mod",
+	"description": "This mod adds a new block that transforms into a random block when a player interacts with it.",
+	"authors": [
+		"Loomi"
+	],
+	"license": "CC0-1.0",
+	"icon": "assets/randomizer_block_mod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"fr.loomi.RandomizeBlockMod"
+		]
+	},
+	"mixins": [],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
