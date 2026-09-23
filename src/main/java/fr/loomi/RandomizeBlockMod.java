@@ -1,6 +1,7 @@
 package fr.loomi;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -37,6 +38,10 @@ public class RandomizeBlockMod implements ModInitializer {
 
 		Registry.register(BuiltInRegistries.BLOCK, id("randomizer_block"), RANDOMIZE_BLOCK);
 		Registry.register(BuiltInRegistries.ITEM, id("randomizer_block"), RANDOMIZE_BLOCK_ITEM);
+
+		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(content -> {
+			content.accept(RANDOMIZE_BLOCK_ITEM);
+		});
 	}
 
 	// ###############################################################

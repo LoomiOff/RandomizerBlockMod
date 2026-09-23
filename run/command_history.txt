@@ -3,3 +3,5 @@
 /give Player150 randomizer_block_mod:randomizer_block
 /give @p randomizer_block_mod:randomizer_block
 /give Player368 randomizer_block_mod:randomizer_block
+/playsound minecraft:block.dried_ghast.transition
+/give @p randomizer_block_mod:randomizer_block
