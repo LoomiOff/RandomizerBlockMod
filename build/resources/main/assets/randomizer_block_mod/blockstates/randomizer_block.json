@@ -1,8 +1,12 @@
 {
   "variants": {
-    "facing=north": { "model": "randomizer_block_mod:block/randomizer" },
-    "facing=south": { "model": "randomizer_block_mod:block/randomizer", "y": 180 },
-    "facing=west":  { "model": "randomizer_block_mod:block/randomizer", "y": 270 },
-    "facing=east":  { "model": "randomizer_block_mod:block/randomizer", "y": 90 }
+    "animating=true,facing=north": { "model": "randomizer_block_mod:block/empty" },
+    "animating=true,facing=south": { "model": "randomizer_block_mod:block/empty" },
+    "animating=true,facing=west":  { "model": "randomizer_block_mod:block/empty" },
+    "animating=true,facing=east":  { "model": "randomizer_block_mod:block/empty" },
+    "animating=false,facing=north": { "model": "randomizer_block_mod:block/randomizer" },
+    "animating=false,facing=south": { "model": "randomizer_block_mod:block/randomizer", "y": 180 },
+    "animating=false,facing=west":  { "model": "randomizer_block_mod:block/randomizer", "y": 270 },
+    "animating=false,facing=east":  { "model": "randomizer_block_mod:block/randomizer", "y": 90 }
   }
 }

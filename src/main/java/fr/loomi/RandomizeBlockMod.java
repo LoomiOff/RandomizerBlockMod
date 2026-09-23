@@ -11,10 +11,13 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Set;
 
 public class RandomizeBlockMod implements ModInitializer {
 
@@ -23,10 +26,16 @@ public class RandomizeBlockMod implements ModInitializer {
 
 	public static final @NotNull Block RANDOMIZE_BLOCK = new RandomizeBlock(BlockBehaviour.Properties.of()
 		.setId(ResourceKey.create(Registries.BLOCK, id("randomizer_block")))
+		.noOcclusion()
 		.strength(1.5f, 6.0f).requiresCorrectToolForDrops());
 
 	public static final @NotNull Item RANDOMIZE_BLOCK_ITEM = new BlockItem(RANDOMIZE_BLOCK, new Item.Properties()
 		.setId(ResourceKey.create(Registries.ITEM, id("randomizer_block"))));
+
+	public static final @NotNull BlockEntityType<RandomizeBlockEntity> RANDOMIZE_BLOCK_ENTITY = new BlockEntityType<>(
+		RandomizeBlockEntity::new,
+		Set.of(RANDOMIZE_BLOCK)
+	);
 
 	// ###############################################################
 	// ----------------------- OVERRIDE METHODS ----------------------
@@ -38,6 +47,7 @@ public class RandomizeBlockMod implements ModInitializer {
 
 		Registry.register(BuiltInRegistries.BLOCK, id("randomizer_block"), RANDOMIZE_BLOCK);
 		Registry.register(BuiltInRegistries.ITEM, id("randomizer_block"), RANDOMIZE_BLOCK_ITEM);
+		Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id("randomizer_block"), RANDOMIZE_BLOCK_ENTITY);
 
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(content -> {
 			content.accept(RANDOMIZE_BLOCK_ITEM);
